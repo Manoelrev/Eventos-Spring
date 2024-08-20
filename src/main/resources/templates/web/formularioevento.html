@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styleForms.css">
+    <title>formulario evento</title>
+</head>
+<body>
+    <main>
+        <div class="forms">        
+            <h1>Cadastro de Eventos</h1>
+            <form method="post" target="_self">
+                Nome: <input type="text" value="" name="nome" placeholder="Insira o nome do evento" required/>
+                Local: <input type="text" value="" name="local" placeholder="Local do Evento" required/>
+                Data: <input type="date" value="" name="data" required/>
+                Horario: <input type="Time" value="" name="horario" required/>
+            
+                <button onclick="alert('Evento Criado com sucesso');" type="submit">Salvar</button>
+            </form>
+            <a href="./">Voltar</a>
+        </div>
+    </main>
+</body>
+</html>

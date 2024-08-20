@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/styleLista.css">
+    <link rel="stylesheet" href="/css/styleForms.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    
+    <link rel="stylesheet" href="/css/styleDetalhes.css">
+    
+    <title>Detalhes</title>
+</head>
+<body>
+    <script>
+        function myFunction() {
+            var text = '';
+            var textinput = document.getElementById('rg').value.replaceAll(".", "").replaceAll("-", "");
+            
+            for (let index = 0; index < textinput.length; index++) {
+                if(index == 3 || index == 6)
+                {
+                    text += "." + textinput[index]
+                } else if(index == 9)
+                {
+                    text += "-" + textinput[index]
+                }  else {
+                    text += textinput[index]
+                }
+                
+            }
+
+            document.getElementById('rg').value = text;
+        }
+    </script>
+        <div class="tabela_dois" style="flex-direction: row; justify-content: space-around;">
+            <h1>Eventos Spring boot</h1>
+            <a style="margin: 0;" href="/">Voltar ao Inicio</a>
+        </div>
+        <main>
+            <div class="topbasedetalhes">
+                <h2 th:text="${evento.nome}"></h2>
+                <div class="basedetalhes">
+                    <p>localizacao: <span th:text="${evento.localizacao}"></span></p>
+                    <p>Data: <span th:text="${evento.datalocal}"></span></p>
+                    <p>Horario: <span th:text="${evento.horario}"></span></p>
+                    <button class="deletar" th:id="@{/deletar/evento/{id}(id=${evento.id})}" onclick="if(confirm('Deseja realmente deletar esse evento?')) window.open(this.id, '_self')">Deletar evento</button>
+                </div>
+            </div>
+            <div class="forms">        
+                <form method="post">
+                    <h1>Adicionar Convidado</h1>
+                    Rg: <input id="rg" oninput="myFunction()" maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" type="text"  name="rg" placeholder="000.000.000-00" required/> 
+                    Nome: <input type="text" name="nome" placeholder=" insira o nome do convidado" required/>
+                    <button type="submit">Salvar</button>
+                </form>
+            </div>
+        </main>
+        <h1>Lista Convidado</h1>
+        <section>
+            
+            <table class="eventos">
+
+            <tr class="header_tr">
+                <th>Rg</th>
+                <th>nome</th>
+            </tr>
+
+            <tr class="base_tr" th:each="convidado : ${convidados}">
+               
+                    <td id="convidado" th:text="${convidado.rg}"></td>
+                    <td id="convidado" th:text="${convidado.nome}"></td>
+                    <td th:id="@{/deletar/Convidados/{rg}(rg=${convidado.rg})}" style="background: none;"  onclick="if(confirm('Deseja realmente deletar esse convidado?')) window.open(this.id, '_self')" class="trash"><span class="material-symbols-outlined">delete</span></td>
+            </tr>
+            
+        </table>
+        </section>
+</body>
+</html>

@@ -1,0 +1,26 @@
+.forms{
+    height: auto; width: auto;
+    padding: 80px 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+
+    input{
+        text-align: center;
+        width: 140%;
+        padding: 10px 10px;
+        border-radius: 25px;
+        border: 0;
+
+        background-color: #F8EDED;
+        margin-bottom: 15px;
+
+        color: black;
+    }
+
+}
+

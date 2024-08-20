@@ -1,0 +1,70 @@
+h1 {
+    color: whitesmoke;
+    font-size: 30px;
+    text-align: center;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    min-width: 800px;
+
+    height: 400px;
+    overflow-y: auto;
+}
+
+section::-webkit-scrollbar {
+    width: 5px;
+    background-color: #f8ededab;
+}
+section::-webkit-scrollbar-thumb {
+    background-color: #F8EDED;
+}
+
+.eventos {
+
+
+    border-collapse: collapse;
+
+    th, td {
+        padding: 15px 20px;
+        border: 0;
+
+        a, a:hover  {
+            color: black;
+            background-color: transparent;
+        }
+    }
+    
+    th {
+        background-color: rgb(35, 35, 35);
+        color: white;
+
+        text-transform: uppercase;
+    }
+
+    th:first-child {
+        border-radius: 10px 0 0 0;
+    }
+    th:last-child {
+        border-radius: 0 10px 0 0;
+    }
+
+    .base_tr {
+        font-weight: 900;
+        cursor: pointer;
+
+        td {
+            background-color: #F8EDED;
+        }
+    }
+
+    .base_tr:hover {
+        td {
+            background-color: rgb(200, 200, 200);
+        }
+    }
+
+    
+}
+
